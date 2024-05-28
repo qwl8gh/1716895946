@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${VUE_APP_SERVER_PORT}:${VUE_APP_SERVER_PORT}"
+    depends_on:
+      - frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${VUE_APP_CLIENT_PORT}:${VUE_APP_CLIENT_PORT}"
